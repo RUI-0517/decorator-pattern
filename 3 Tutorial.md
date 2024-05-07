@@ -137,8 +137,26 @@ class SwordDecorator : ISword
 ## 第一步：实现武器
 
 首先，我们应该实现我们自己的接口和类。
+在 Unity 项目中的 `Scripts/Decorator Pattern` 文件夹里，我已经定义了 `IWeapon` 接口。
 
-我们将实现两个通用的装饰者：
+```csharp
+public interface IWeapon
+{
+    public int attack { get; }
+    public void Use();
+}
+```
+
+我建议在 `Use()` 函数中仅实现日志打印功能，比如可以这样写：
+
+```csharp
+public void Use()
+{
+    Debug.Log($"{GetType().Name} 已被使用。它造成了 {attack} 点伤害。");
+}
+```
+
+其次，我们将实现两个通用的装饰者：
 
 - Sharpness（锋利）：当装饰到一件武器上时，它会使武器的攻击力增加 1；
 - Smite（亡灵杀手）：当攻击骷髅时，会额外造成 1 点伤害。
@@ -150,7 +168,10 @@ class SwordDecorator : ISword
 1. 将 `Sharpness` 效果命名为 `SharpnessDecorator`
 2. 将 `Smite` 效果命名为 `SmiteDecorator`
 
-这是因为在这个场景中，我们通过字符串添加装饰者，所以如果命名不匹配，当你点击按钮时，它会报错。
+这是因为在这个场景中，我们通过字符串添加装饰者，所以如果命名不匹配，当你点击按钮时，它会报错：
+
+> 未找到装饰器类型或类型不合法: SharpnessDecorator
+> ArgumentException: 提供的附魔类型字符串无效或包含无法识别的类型名称
 
 ## 第二步：实现装饰者逻辑
 
@@ -174,6 +195,8 @@ public void MakeEnchantedWeapon(string decoratorString)
     // 根据装饰器类型实现武器附魔的具体逻辑 ↓
 
     throw new NotImplementedException("MakeEnchantedWeapon 方法的具体实现尚未完成。需要根据解析出的装饰器类型为武器应用相应的附魔。");
+
+    _weapon.Use();
 }
 ```
 
@@ -204,16 +227,23 @@ foreach (string str in decoratorStrings)
 }
 ```
 
-## 第三步：测试时间！
+## 第三步：将 Weapon 类挂在在 Item 对象上
 
-然后，你可以启动游戏并点击按钮。
-如果你的实现正确，你可以看到
+由于我仅知道我实现的 `IWeapon` 接口，并且可以在名为 `Item` 的对象中寻找到实现了这一接口的组件，因此请确保将你的 `Weapon` 类挂载到 `Item` 对象上，以保证代码能够正常运行。我已经在编辑器中高亮显示了 `Item` 对象。如果 `Weapon` 类没有正确挂载，你将看到以下错误信息：
 
-1. 消息日志
-2. 当你悬停在物品上时，描述会改变。
+> 未在 `Item` 或其子对象中找到实现了 `IWeapon` 接口的组件。请确保你的武器类已经挂载在该对象上。
+
+## 第四步：测试时间！
+
+最后，你可以启动游戏并点击按钮。
+如果你的实现正确，你将正确地调用 `Use()` 函数。
 
 这里是演示视频:
 
-如果你遇到困难，随时可以联系我或查看我在 `main` 分支的代码。
+如果你遇到困难，可以随时：
+
+1.  查看我在 [main 分支](https://github.com/RUI-0517/decorator-pattern) 上的代码。
+2.  通过哔哩哔哩私信联系我：[-ANVER-](https://space.bilibili.com/29389283)
+3.  给我发电子邮件：question@boopoo.co
 
 再见:)
