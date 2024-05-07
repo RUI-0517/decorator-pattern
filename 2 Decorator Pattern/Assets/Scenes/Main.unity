@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3ef1c1b6952fd04da5fd5465f153be2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weapon: {fileID: 1147351594}
+  _item: {fileID: 1147351589}
 --- !u!114 &936803592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,6 +1367,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 0.3647059, g: 0.46666667, b: 0.47843137, a: 1}
+  notification: "\u4F60\u9700\u8981\u5728\u8FD9\u4E2A\u7EC4\u4EF6\u4E2D\u5B9E\u73B0\n\"MakeEnchantedWeapon\"
+    \u548C \"IsValidDecoratorType\" \u65B9\u6CD5\u3002"
 --- !u!1 &1035183457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,7 +1476,6 @@ GameObject:
   - component: {fileID: 1147351590}
   - component: {fileID: 1147351592}
   - component: {fileID: 1147351591}
-  - component: {fileID: 1147351594}
   - component: {fileID: 1147351593}
   m_Layer: 5
   m_Name: Item
@@ -1550,23 +1551,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1147351589}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd1e147de8d25ed4d88b0c17c94edb1e, type: 3}
+  m_Script: {fileID: 11500000, guid: b5510c24349ffa94eb4d152f0cdfee5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tooltip: {fileID: 222895233}
-  _contentRef: {fileID: 2031705644}
---- !u!114 &1147351594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147351589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8c03e0794881548b2041ac5ec18117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  highlightColor: {r: 0.3647059, g: 0.46666667, b: 0.47843137, a: 1}
+  notification: "\u4E0D\u8981\u5FD8\u8BB0\u5728\u8FD9\u4E2A\u5BF9\u8C61\u4E0A\u9644\u52A0\u5177\u4F53\u7684\u6B66\u5668\u7C7B\u3002"
 --- !u!1 &1337319084
 GameObject:
   m_ObjectHideFlags: 0

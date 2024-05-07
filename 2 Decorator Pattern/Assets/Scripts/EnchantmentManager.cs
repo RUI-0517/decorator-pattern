@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,23 @@ public class EnchantmentManager : MonoBehaviour
     /// <summary>s
     /// 要被附魔的武器
     /// </summary>
-    [SerializeField] private Weapon _weapon;
+    [SerializeField] private GameObject _item;
+
+    private IWeapon _weapon;
+
+
+    [UsedImplicitly]
+    private void Start()
+    {
+        _weapon = _item.GetComponentInChildren<IWeapon>();
+
+        if (_weapon != null) return;
+        Debug.LogError($"未在 {_item.name} 或其子对象中找到实现了 IWeapon 接口的组件。请确保你的武器类已经挂载在该对象上。");
+
+#if UNITY_EDITOR
+        UnityEditor.EditorGUIUtility.PingObject(_item);
+#endif
+    }
 
     /// <summary>
     /// 对武器进行附魔。此方法将接受一个包含一个或多个附魔类型的字符串输入。
@@ -24,6 +41,8 @@ public class EnchantmentManager : MonoBehaviour
         // 根据装饰器类型实现武器附魔的具体逻辑 ↓
 
         throw new NotImplementedException("MakeEnchantedWeapon 方法的具体实现尚未完成。需要根据解析出的装饰器类型为武器应用相应的附魔。");
+        
+        _weapon.Use();
     }
 
     /// <summary>
