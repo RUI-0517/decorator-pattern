@@ -1,0 +1,39 @@
+@startuml Decorator Pattern
+
+' Settings
+!theme vibrant
+hide empty members
+
+package "Minecraft Enchantments"{
+    interface IWeapon {
+        .. Method ..
+        + Use() : void
+    }
+
+    class Sword {
+        .. Attribute ..
+        - attack : int
+
+        .. Method ..
+        + Use() : void
+    }
+    IWeapon <|.. Sword
+
+    abstract WeaponDecorator{
+        .. Attribute ..
+        # weapon : IWeapon
+
+        .. Method ..
+        + Use() : void
+    }
+    IWeapon <|.. WeaponDecorator
+
+    class SharpnessDecorator{
+    }
+    WeaponDecorator <|-- SharpnessDecorator
+
+    class SmiteDecorator{
+    }
+    WeaponDecorator <|-- SmiteDecorator
+
+}

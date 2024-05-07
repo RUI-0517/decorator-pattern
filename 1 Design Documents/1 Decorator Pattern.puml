@@ -1,0 +1,34 @@
+@startuml Decorator Pattern
+
+' Settings
+!theme vibrant
+hide empty members
+
+package "Decorator Pattern"{
+    interface IItem{
+        .. Method ..
+        + Use() : void
+    }
+
+    class ConcreteItem{
+        .. Method ..
+        + Use() : void
+    }
+    IItem <|.. ConcreteItem
+
+    abstract ItemDecorator{
+        .. Attributes ..
+        # item : IItem
+
+        .. Method ..
+        + Use() : void
+    }
+    IItem <|.. ItemDecorator
+
+    class ConcreteItemDecorator{
+        .. Method ..
+        + Use() : void
+    }
+    ItemDecorator <|-- ConcreteItemDecorator
+
+}
