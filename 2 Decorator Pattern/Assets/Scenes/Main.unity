@@ -1477,6 +1477,7 @@ GameObject:
   - component: {fileID: 1147351592}
   - component: {fileID: 1147351591}
   - component: {fileID: 1147351593}
+  - component: {fileID: 1147351594}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -1556,6 +1557,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightColor: {r: 0.3647059, g: 0.46666667, b: 0.47843137, a: 1}
   notification: "\u4E0D\u8981\u5FD8\u8BB0\u5728\u8FD9\u4E2A\u5BF9\u8C61\u4E0A\u9644\u52A0\u5177\u4F53\u7684\u6B66\u5668\u7C7B\u3002"
+--- !u!114 &1147351594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147351589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44cf438cccff0c74c870ff06b6e3209d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1337319084
 GameObject:
   m_ObjectHideFlags: 0
